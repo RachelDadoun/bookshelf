@@ -82,7 +82,7 @@ function addToList(book , mode) {
 		
 		bookNameDiv.className = "left";
 		authorNameDiv.className = "left";
-		scoreDiv.className = "center";
+		scoreDiv.className = "left";
 		
 		var xButton = document.createElement("button");
 		xButton.innerHTML = "X";
@@ -94,7 +94,7 @@ function addToList(book , mode) {
 		upButton.innerHTML = "Edit";
 		upButton.setAttribute("onclick", "replaceInput(event)");
 		upButton.setAttribute("id", "resetLi" + i );
-		upButton.className = "left";
+		upButton.className = "center";
 
 		newElement.appendChild(bookNameDiv);
 		newElement.appendChild(authorNameDiv);
