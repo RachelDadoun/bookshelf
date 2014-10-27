@@ -130,6 +130,6 @@ var bookName = divs[0].innerHTML;
 var authorName = divs[1].innerHTML;
 var score = divs[2].innerHTML;
 var book = new Book(bookName, authorName, score);
-e.target.parentElemnt.remove();	
+e.target.parentElement.remove();	
 addToList(book , 'edit');
 }
