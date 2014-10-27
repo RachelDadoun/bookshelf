@@ -41,11 +41,11 @@ function addBook(){
 	var authorName = document.getElementById('authorName').value;
 	var score = document.getElementById('score').value;
 	var book = new Book(bookName, authorName, score);
-	addToList(book);
+	addToList(book, 'regular');
 	reset();
 }
 
-function addToList(book) {
+function addToList(book , mode) {
 		i=i+1;
 		if (firstTime == 'Yes')
 		{
@@ -58,18 +58,32 @@ function addToList(book) {
 			tit.appendChild(newButton);
 		}
 		var newElement = document.createElement("li");
-		var bookNameDiv = document.createElement("input");
-		bookNameDiv.type="text"
-		bookNameDiv.value = book.bookName;
+		if (mode =='edit')
+		{
+			var bookNameDiv = document.createElement("input");
+			bookNameDiv.type="text";
+			bookNameDiv.value = book.bookName;
+			var authorNameDiv = document.createElement("input");
+			authorNameDiv.type="text";
+			authorNameDiv.value = book.authorName;
+			var scoreDiv = document.createElement("input");
+			scoreDiv.type="text";
+			scoreDiv.value = book.score;
+		}
+		else
+		{
+			var bookNameDiv = document.createElement("div");
+			bookNameDiv.innerHtml = book.bookName;
+			var authorNameDiv = document.createElement("div");
+			authorNameDiv.innerHtml = book.authorName;
+			var scoreDiv = document.createElement("div");
+			scoreDiv.innerHtml = book.score;		
+		}
+		
 		bookNameDiv.className = "left";
-		var authorNameDiv = document.createElement("input");
-		authorNameDiv.type="text"
-		authorNameDiv.value = book.authorName;
 		authorNameDiv.className = "left";
-		var scoreDiv = document.createElement("input");
-		scoreDiv.type="text"
-		scoreDiv.value = book.score;
 		scoreDiv.className = "center";
+		
 		var xButton = document.createElement("button");
 		xButton.innerHTML = "X";
 		xButton.onclick = "resetLi('this')";
@@ -101,4 +115,14 @@ if (ul.innerHTML.trim() =='')
 	btn.remove();
 
 }
+}
+function replaceInput (e) 
+{
+divs = e.target.parentElemnt.childern	
+var bookName = divs[0].innerHtml;
+var authorName = divs[1].innerHtml;
+var score = divs[2].innerHtml;
+var book = new Book(bookName, authorName, score);
+e.target.parentElemnt.remove();	
+addToList(book , 'edit');
 }
