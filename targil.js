@@ -1,4 +1,5 @@
 var firstTime = 'Yes';
+var i = 0;
 function Book (bookName, authorName, score) {
 	this.bookName = bookName;
 	this.authorName = authorName;
@@ -45,6 +46,7 @@ function addBook(){
 }
 
 function addToList(book) {
+		i=i+1;
 		if (firstTime == 'Yes')
 		{
 			var newButton = document.createElement("button");
@@ -56,18 +58,28 @@ function addToList(book) {
 			tit.appendChild(newButton);
 		}
 		var newElement = document.createElement("li");
-		var bookNameDiv = document.createElement("div");
-		bookNameDiv.innerHTML = book.bookName;
+		var bookNameDiv = document.createElement("input");
+		bookNameDiv.type="text"
+		bookNameDiv.value = book.bookName;
 		bookNameDiv.className = "left";
-		var authorNameDiv = document.createElement("div");
-		authorNameDiv.innerHTML = book.authorName;
-		authorNameDiv.className = "center";
-		var scoreDiv = document.createElement("div");
-		scoreDiv.innerHTML = book.score;
-		scoreDiv.className = "right";
+		var authorNameDiv = document.createElement("input");
+		authorNameDiv.type="text"
+		authorNameDiv.value = book.authorName;
+		authorNameDiv.className = "left";
+		var scoreDiv = document.createElement("input");
+		scoreDiv.type="text"
+		scoreDiv.value = book.score;
+		scoreDiv.className = "center";
+		var xButton = document.createElement("button");
+		xButton.innerHTML = "X";
+		xButton.onclick = "resetLi('this')";
+		xButton.setAttribute("onclick", "resetLi(this)");
+		xButton.setAttribute("id", "resetLi" + i );
+		xButton.className = "right";
 		newElement.appendChild(bookNameDiv);
 		newElement.appendChild(authorNameDiv);
 		newElement.appendChild(scoreDiv);
+		newElement.appendChild(xButton);
 		var ul = document.getElementById("bookList");
 		ul.appendChild(newElement);
 }
@@ -78,4 +90,15 @@ function resetList()
 	btn.parentNode.removeChild(btn);
 	ul.innerHTML = ' ';
 	
+}
+function resetLi(o)
+{
+o.parentElement.remove();
+var ul = document.getElementById("bookList");
+var btn = document.getElementById("resetL");
+if (ul.innerHTML.trim() =='')
+{
+	btn.remove();
+
+}
 }
