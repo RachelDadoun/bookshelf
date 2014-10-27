@@ -1,6 +1,17 @@
-ul#bookList li div {
+ul#bookList li input {
 	display: inline-block;
 	width: 30%;
+	border:none;
+}
+input:focus
+{
+border:none;
+box-sizing:none;
+-webkit-appearance: none;
+}
+ul#bookList li button {
+	display: inline;
+	width: 5%;
 }
 
 .left {
@@ -12,7 +23,7 @@ ul#bookList li div {
 }
 
 .center {
-	width: 40% !important;
+	width: 35% !important;
 	text-align: center;
 }
 
