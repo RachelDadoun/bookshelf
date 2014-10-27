@@ -1,4 +1,4 @@
-ul#bookList li input {
+ul#bookList li input ,ul#bookList li div {
 	display: inline-block;
 	width: 20%;
 	border:none;
