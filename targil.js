@@ -91,7 +91,8 @@ function addToList(book , mode) {
 		xButton.className = "right";
 		
 		var upButton = document.createElement("button");
-		upButton.innerHTML = "Edit";
+		upButton.innerHTML = " ";
+		xButton.setAttribute("class", "pencil" );
 		//upButton.setAttribute("onclick", "replaceInput(event)");
 		upButton.onclick = replaceInput;
 		upButton.className = "center";
