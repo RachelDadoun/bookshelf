@@ -73,11 +73,11 @@ function addToList(book , mode) {
 		else
 		{
 			var bookNameDiv = document.createElement("div");
-			bookNameDiv.innerHtml = book.bookName;
+			bookNameDiv.innerHTML = book.bookName;
 			var authorNameDiv = document.createElement("div");
-			authorNameDiv.innerHtml = book.authorName;
+			authorNameDiv.innerHTML = book.authorName;
 			var scoreDiv = document.createElement("div");
-			scoreDiv.innerHtml = book.score;		
+			scoreDiv.innerHTML = book.score;		
 		}
 		
 		bookNameDiv.className = "left";
@@ -126,9 +126,9 @@ if (ul.innerHTML.trim() =='')
 function replaceInput (e) 
 {
 divs = e.target.parentElemnt.childern();	
-var bookName = divs[0].innerHtml;
-var authorName = divs[1].innerHtml;
-var score = divs[2].innerHtml;
+var bookName = divs[0].innerHTML;
+var authorName = divs[1].innerHTML;
+var score = divs[2].innerHTML;
 var book = new Book(bookName, authorName, score);
 e.target.parentElemnt.remove();	
 addToList(book , 'edit');
