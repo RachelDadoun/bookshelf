@@ -125,7 +125,7 @@ if (ul.innerHTML.trim() =='')
 }
 function replaceInput (e) 
 {
-divs = e.target.parentElemnt.childern();	
+var divs = e.target.parentElemnt.childern();	
 var bookName = divs[0].innerHTML;
 var authorName = divs[1].innerHTML;
 var score = divs[2].innerHTML;
