@@ -86,13 +86,20 @@ function addToList(book , mode) {
 		
 		var xButton = document.createElement("button");
 		xButton.innerHTML = "X";
-		xButton.onclick = "resetLi('this')";
 		xButton.setAttribute("onclick", "resetLi(this)");
 		xButton.setAttribute("id", "resetLi" + i );
 		xButton.className = "right";
+		
+		var upButton = document.createElement("button");
+		upButton.innerHTML = "Edit";
+		upButton.setAttribute("onclick", "replaceInput(event)");
+		upButton.setAttribute("id", "resetLi" + i );
+		upButton.className = "left";
+
 		newElement.appendChild(bookNameDiv);
 		newElement.appendChild(authorNameDiv);
 		newElement.appendChild(scoreDiv);
+		newElement.appendChild(upButton);
 		newElement.appendChild(xButton);
 		var ul = document.getElementById("bookList");
 		ul.appendChild(newElement);
