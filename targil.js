@@ -123,7 +123,7 @@ if (ul.innerHTML.trim() =='')
 
 }
 }
-function replaceInput (e) 
+function replaceInput(e) 
 {
 var divs = e.target.parentElemnt.children;	
 var bookName = divs[0].innerHTML;
